@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Dave Nguyen']
   s.email       = 'd@fundamerica.com'
   s.files       = Dir['lib/**/*', 'LICENSE', 'README.md']
-  s.homepage    = 'https://github.com/fundamerica/trulioo'
+  s.homepage    = 'https://github.com/dkleiman/trulioo'
   s.license     = 'MIT'
 
   s.add_runtime_dependency 'httparty', '~> 0.15'
