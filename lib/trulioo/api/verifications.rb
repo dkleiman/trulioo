@@ -7,12 +7,13 @@ module Trulioo
     class Verifications < Trulioo::API::Base
       class << self
         def format_value(value)
-          if value.is_a?(String) && /true/i.match(value)
+          if value.is_a?(String) && /^true$/i.match(value)
             true
-          elsif value.is_a?(String) && /false/i.match(value)
+          elsif value.is_a?(String) && /^false$/i.match(value)
             false
           else
-            value
+            # Try parsing the value as JSON. If this fails, return the original value
+            JSON.parse(value) rescue value
           end
         end
 
