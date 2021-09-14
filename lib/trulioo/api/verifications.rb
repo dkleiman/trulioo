@@ -12,7 +12,7 @@ module Trulioo
 
           # Try parsing the value as JSON
           JSON.parse(value)
-        rescue JSON::ParserError
+        rescue StandardError
           # Return the value if it's not JSON
           value
         end
