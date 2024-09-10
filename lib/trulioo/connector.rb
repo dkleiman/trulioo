@@ -45,7 +45,7 @@ module Trulioo
     end
 
     def url(namespace, action)
-      URI.encode(
+      URI::Parser.new.escape(
         "#{settings.base_uri}/#{namespace}/#{settings.api_version}/#{action}"
       )
     end
