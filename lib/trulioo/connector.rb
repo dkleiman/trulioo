@@ -37,11 +37,20 @@ module Trulioo
       }
       params.merge!(auth_params) if options[:auth]
       params[:body] = params_body(options[:body]) if options[:body]
-      params
+      params.merge(timeout_params(params)) if timeout_params(params).present?
     end
 
     def params_body(body)
       { AcceptTruliooTermsAndConditions: true }.merge(body).to_json
+    end
+
+    def timeout_params(params)
+      {
+        timeout: params[:timeout].present? ? params[:timeout] : nil,
+        open_timeout: params[:open_timeout].present? ? params[:open_timeout] : nil,
+        read_timeout: params[:read_timeout].present? ? params[:read_timeout] : nil,
+        write_timeout: params[:write_timeout].present? ? params[:write_timeout] : nil,
+      }.compact
     end
 
     def url(namespace, action)
