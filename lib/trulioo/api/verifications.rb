@@ -33,10 +33,10 @@ module Trulioo
       end
 
       def verify(data, timeout_params = {})
-        options = if timeout_params.present? ? {body: data}.merge(timeout_params) : {body: data}
+      options = timeout_params.present? ? { body: data }.merge(timeout_params) : { body: data }
 
-        Result.new(post('verify', auth: true, options))
-      end
+      Result.new(post("verify", auth: true, **options))
+    end
 
       private
 
