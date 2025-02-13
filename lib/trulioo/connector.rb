@@ -35,6 +35,9 @@ module Trulioo
           'Content-Type' => 'application/json'
         }
       }
+      timeout_params = timeout_params(options)
+      params.merge!(timeout_params) if timeout_params.present?
+
       params.merge!(auth_params) if options[:auth]
       params[:body] = params_body(options[:body]) if options[:body]
       params
@@ -43,6 +46,11 @@ module Trulioo
     def params_body(body)
       { AcceptTruliooTermsAndConditions: true }.merge(body).to_json
     end
+
+    def timeout_params(options)
+      timeout_keys = [:timeout, :open_timeout, :read_timeout, :write_timeout]
+      options.slice(*timeout_keys).compact
+   end
 
     def url(namespace, action)
       URI::Parser.new.escape(
