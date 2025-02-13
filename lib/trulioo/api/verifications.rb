@@ -32,8 +32,8 @@ module Trulioo
         Result.new(get(action, auth: true))
       end
 
-      def verify(data)
-        Result.new(post('verify', auth: true, body: data))
+      def verify(data, options = {})
+        Result.new(post('verify', auth: true, body: data, **options))
       end
 
       private
