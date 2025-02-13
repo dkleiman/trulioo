@@ -50,7 +50,7 @@ module Trulioo
     def timeout_params(options)
       timeout_keys = [:timeout, :open_timeout, :read_timeout, :write_timeout]
       options.slice(*timeout_keys).compact
-   end
+    end
 
     def url(namespace, action)
       URI::Parser.new.escape(

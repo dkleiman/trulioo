@@ -32,10 +32,8 @@ module Trulioo
         Result.new(get(action, auth: true))
       end
 
-      def verify(data, timeout_params = {})
-        options = timeout_params.present? ? { body: data }.merge(timeout_params) : { body: data }
-        
-        Result.new(post('verify', auth: true, **options))
+      def verify(data, options = {})
+        Result.new(post('verify', auth: true, body: data, **options))
       end
 
       private
