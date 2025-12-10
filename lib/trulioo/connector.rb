@@ -36,7 +36,7 @@ module Trulioo
         }
       }
       timeout_params = timeout_params(options)
-      params.merge!(timeout_params) if timeout_params.present?
+      params.merge!(timeout_params) unless timeout_params.empty?
 
       params.merge!(auth_params) if options[:auth]
       params[:body] = params_body(options[:body]) if options[:body]
