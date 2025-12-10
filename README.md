@@ -2,7 +2,7 @@
 
 This gem provides access to [Trulioo](https://www.trulioo.com/)'s GlobalGateway
 API. For detailed information regarding the API, check out their [API
-docs](https://api.globaldatacompany.com/docs).
+docs](https://developer.trulioo.com/reference/welcome).
 
 ## Getting Started
 

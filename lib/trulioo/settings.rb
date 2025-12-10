@@ -7,7 +7,7 @@ module Trulioo
 
     def initialize
       @api_version = 'v1'
-      @base_uri = 'https://api.globaldatacompany.com'
+      @base_uri = 'https://api.trulioo.com'
     end
   end
 end
